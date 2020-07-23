@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时钟</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .circle {
+            width: 400px;
+            height: 400px;
+            margin: 20px auto;
+            border-radius: 50%;
+            border: 10px solid #eee;
+            position: relative;
+        }
+        
+        .circle>.item {
+            width: 10px;
+            height: 400px;
+            background-color: #eee;
+            position: absolute;
+            top: 0;
+            left: 195px;
+        }
+        
+        .circle>.item:first-child {
+            transform: rotate(30deg);
+        }
+        
+        .circle>.item:nth-child(2) {
+            transform: rotate(60deg);
+        }
+        
+        .circle>.item:nth-child(3) {
+            transform: rotate(90deg);
+        }
+        
+        .circle>.item:nth-child(4) {
+            transform: rotate(120deg);
+        }
+        
+        .circle>.item:nth-child(5) {
+            transform: rotate(150deg);
+        }
+        
+        .circle>.item:last-child {
+            transform: rotate(180deg);
+        }
+        
+        .timeLine {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+        
+        .small_circle {
+            width: 20px;
+            height: 20px;
+            background-color: #eee;
+            border-radius: 50%;
+        }
+        
+        .timeLine>.hour {
+            width: 6px;
+            height: 120px;
+            background-color: red;
+            transform-origin: top center;
+            animation: run 86400s infinite;
+        }
+        
+        .timeLine>.minute {
+            width: 4px;
+            height: 130px;
+            background-color: green;
+            transform-origin: top center;
+            animation: run 3600s infinite;
+        }
+        
+        .timeLine>.second {
+            width: 2px;
+            height: 150px;
+            background-color: blue;
+            transform-origin: top center;
+            animation: run 60s infinite steps(60);
+            transition: transform steps(60);
+        }
+        
+        @keyframes run {
+            0% {
+                transform: translate(-50%, 0%) rotate(-180deg);
+            }
+            100% {
+                transform: translate(-50%, 0%) rotate(180deg);
+            }
+        }
+        
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="circle">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="timeLine center">
+                <div class="center hour"></div>
+                <div class="center minute"></div>
+                <div class="center second"></div>
+                <div class="center small_circle"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
