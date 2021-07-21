@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function Person(name, age) {
+        this.name = name
+        this.age = age
+    }
+    var _new = function() {
+        //  将 arguments 对象转为数组
+        var params = Array.prototype.slice.call(arguments)
+            // 拿到第一个参数作为构造函数
+        var constructor = params.shift()
+            // 创建一个对象指向构造函数的原型
+        var obj = Object.create(constructor.prototype)
+        var res = constructor.apply(obj, params)
+        return typeof res === 'object' && res !== null ? res : obj
+
+    }
+</script>
+
+</html>
